@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Fashion Design Hub</title>
+</head>
+<body class="font-rubik bg-gray-100 text-gray-800">
+    <header class="bg-white shadow">
+        <nav class="container mx-auto flex justify-between items-center p-5">
+            <h1 class="text-2xl font-bold">Fashion Design Hub</h1>
+            <ul class="flex space-x-4">
+                <li><a href="#about" class="hover:text-blue-500">About</a></li>
+                <li><a href="#services" class="hover:text-blue-500">Services</a></li>
+                <li><a href="#portfolio" class="hover:text-blue-500">Portfolio</a></li>
+                <li><a href="#testimonials" class="hover:text-blue-500">Testimonials</a></li>
+                <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+                <li><a href="#game" class="hover:text-blue-500">Game</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero" class="bg-blue-600 text-white flex items-center justify-center h-screen">
+        <div class="text-center">
+            <h2 class="text-4xl font-bold mb-4">Welcome to Fashion Design Hub</h2>
+            <p class="mb-8">Your one-stop destination for all things fashion.</p>
+            <a href="#services" class="bg-white text-blue-600 px-4 py-2 rounded">Get Started</a>
+        </div>
+    </section>
+
+    <section id="about" class="container mx-auto py-20">
+        <h3 class="text-3xl font-bold text-center mb-10">About Us</h3>
+        <p class="text-center">We are passionate about fashion design, offering innovative solutions and creative designs tailored to your needs.</p>
+    </section>
+
+    <section id="services" class="bg-gray-200 py-20">
+        <div class="container mx-auto">
+            <h3 class="text-3xl font-bold text-center mb-10">Our Services</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-white p-5 rounded shadow">
+                    <h4 class="font-bold text-xl mb-3">Custom Designs</h4>
+                    <p>Tailored fashion designs based on client preferences.</p>
+                </div>
+                <div class="bg-white p-5 rounded shadow">
+                    <h4 class="font-bold text-xl mb-3">Consultation</h4>
+                    <p>Expert advice on fashion trends and styles.</p>
+                </div>
+                <div class="bg-white p-5 rounded shadow">
+                    <h4 class="font-bold text-xl mb-3">Workshops</h4>
+                    <p>Interactive sessions to enhance your fashion skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="container mx-auto py-20">
+        <h3 class="text-3xl font-bold text-center mb-10">Our Portfolio</h3>
+        <p class="text-center mb-10">A glimpse of our latest projects.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="bg-white p-5 rounded shadow">
+                <img src="https://via.placeholder.com/300" alt="Project 1" class="mb-4 rounded">
+                <h4 class="font-bold">Project 1</h4>
+            </div>
+            <div class="bg-white p-5 rounded shadow">
+                <img src="https://via.placeholder.com/300" alt="Project 2" class="mb-4 rounded">
+                <h4 class="font-bold">Project 2</h4>
+            </div>
+            <div class="bg-white p-5 rounded shadow">
+                <img src="https://via.placeholder.com/300" alt="Project 3" class="mb-4 rounded">
+                <h4 class="font-bold">Project 3</h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="bg-gray-200 py-20">
+        <div class="container mx-auto">
+            <h3 class="text-3xl font-bold text-center mb-10">Testimonials</h3>
+            <p class="text-center">What our clients say about us.</p>
+            <blockquote class="mt-5 text-center italic">"Amazing designs and great service! Highly recommend!" - Client A</blockquote>
+        </div>
+    </section>
+
+    <section id="contact" class="container mx-auto py-20">
+        <h3 class="text-3xl font-bold text-center mb-10">Contact Us</h3>
+        <form class="max-w-lg mx-auto">
+            <input type="text" placeholder="Your Name" class="border p-2 w-full mb-4 rounded">
+            <input type="email" placeholder="Your Email" class="border p-2 w-full mb-4 rounded">
+            <textarea placeholder="Your Message" class="border p-2 w-full mb-4 rounded"></textarea>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Send Message</button>
+        </form>
+    </section>
+
+    <section id="game" class="bg-gray-200 py-20">
+        <div class="container mx-auto">
+            <h3 class="text-3xl font-bold text-center mb-10">Play Our Game!</h3>
+            <p class="text-center mb-5">Test your fashion knowledge with our fun quiz!</p>
+            <button onclick="startGame()" class="bg-blue-600 text-white px-4 py-2 rounded">Start Quiz</button>
+            <div id="quiz" class="hidden mt-5 text-center">
+                <p id="question"></p>
+                <button onclick="nextQuestion()" class="bg-blue-600 text-white px-4 py-2 rounded">Next Question</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white text-center py-5">
+        <p>&copy; 2023 Fashion Design Hub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const questions = [
+            { question: 'What is the capital of France?', answer: 'Paris' },
+            { question: 'What color is the sky?', answer: 'Blue' }
+        ];
+        let currentQuestion = 0;
+
+        function startGame() {
+            document.getElementById('quiz').classList.remove('hidden');
+            document.getElementById('question').innerText = questions[currentQuestion].question;
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                document.getElementById('question').innerText = questions[currentQuestion].question;
+            } else {
+                alert('Game Over!');
+            }
+        }
+    </script>
+</body>
+</html>
